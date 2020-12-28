@@ -1,6 +1,6 @@
 const readlineSync = require('readline-sync');
 let gameOver = false;
-let userHealth = 200;
+let userHealth = 150;
 let inventory = [];
 let enemies = [];
 
@@ -14,10 +14,10 @@ function Enemy (enemyName, minDamage, maxDamage, HP, item) {
     this.isDefeated = false;
 }
 
-enemies.push(new Enemy("pack of Krykna", 40, 50, 50, "Frog Egg"));
-enemies.push(new Enemy("a Storm Trooper", 60, 70, 70, "Gear Knob"));
-enemies.push(new Enemy("a Dark Trooper", 70, 90, 90, "Beskar Staff"));
-enemies.push(new Enemy("Moff Gideon", 50, 120, 150, "Dark Saber"));
+enemies.push(new Enemy("pack of Krykna", 40, 70, 50, "Frog Egg"));
+enemies.push(new Enemy("a Storm Trooper", 60, 90, 70, "Gear Knob"));
+enemies.push(new Enemy("a Dark Trooper", 70, 110, 90, "Beskar Staff"));
+enemies.push(new Enemy("Moff Gideon", 50, 160, 150, "Dark Saber"));
 
 
 // Game Start
@@ -62,13 +62,15 @@ function enemyAppears () {
 function battle () {
         while (!gameOver) {
         let randomEnemy = enemies[Math.floor(Math.random()*enemies.length)];
-        console.log('Beware- it is ' + randomEnemy.enemyName + '.');
+        console.log('Beware- it is ' + randomEnemy.enemyName + '!');
             while (userHealth >= 0 || randomEnemy.HP >= 0) {
             readlineSync.setDefaultOptions({limit: ['f', 'r', 'q']})  
             let runFight = readlineSync.question('Are you going to Force Push (f) or run (r)? Press q to quit. ');
+        // Choose to Quit- NOT WORKING RIGHT NOW
             if (runFight === 'q') {
                 console.log('May the force be with you. ');
                 gameOver = true;
+        // Choose to Fight
             } else if (runFight === 'f') {
                console.log('You use the force! ');
                 let attack = Math.floor(Math.random() * (randomEnemy.maxDamage - randomEnemy.minDamage)) + randomEnemy.minDamage;
@@ -76,27 +78,27 @@ function battle () {
                 console.log('You dealt ' + attack + ' points of damage! ' + randomEnemy.enemyName + ' currently has ' + enemyCurrentHP + ' health points left.')
                 let enemyAttack = Math.floor(Math.random()* (randomEnemy.maxDamage - randomEnemy.minDamage));
                 let userCurrentHP = userHealth - enemyAttack 
-                console.log('Watch out! Woah- ' + randomEnemy.enemyName + ' dealt ' + enemyAttack + ' points of damage! You currently have ' + userCurrentHP + ' health points left.')
+                if (enemyCurrentHP <= 0) {
+                    inventory.push(randomEnemy.item)
+                    console.log('You defeated ' + randomEnemy.enemyName + '. Take a look at your inventory to see the new item added! ')
+                    console.log(inventory)
+                    console.log('Let\'s continue on your journey to the Seeing Stone.')
+                    delete randomEnemy
+                    explore() }
+                console.log('Watch out for an attack! Oh no- ' + randomEnemy.enemyName + ' dealt ' + enemyAttack + ' points of damage to you! You currently have ' + userCurrentHP + ' health points left.')
+                if (userCurrentHP <= 0) {
+                    gameOver = true; }
+        // Choose to Run
             } else if (runFight === 'r') {
                 let escape = Math.random();
                 if (escape < 0.5) {
                     console.log('You\'ve escaped! Continue on your journey. ');
                     explore()
                 } else if (escape >= 0.5) {
-                    console.log('Oh no,' + userName + ', you weren\'t quite fast enough. Get ready to attack!');
+                    console.log('Oh no,' + userName + ', you weren\'t quite fast enough. They\'re about to attack! Are you going to defend yourself?');
                     // NEED TO FINISH THIS PART
             }
-            if (userCurrentHP <= 0) {
-                gameOver = true;
-            }
-            if (enemyCurrentHP <= 0) {
-                inventory.push(randomEnemy.item)
-                console.log('You defeated ' + randomEnemy.enemyName + '. Take a look at your inventory to see what you earned! ')
-                console.log(inventory)
-                console.log('Let\'s continue on your journey to the Seeing Stone.')
-                delete randomEnemy
-                explore
-            }
+            
         }
         
 
@@ -114,7 +116,8 @@ if (gameOver = true) {
 
 
 // Issues
-// When line 39-40 isn't commented out, it prints the 'p' command even if I hit w
-// Need randomEnemy.HP and userHealth to get smaller and smaller instead of starting over each time.
-// Need userCurrentHP to be in another if statement on line 89- says it is undefined- connected to previous issue.
-// Lines 69-71 in Battle Function doesn't quit/End Game like it does in the Explore Function 
+// When line 39-40 isn't commented out, it prints the 'p' command even if I hit w 
+// Lines 76-90- Need randomEnemy.HP and userHealth to get smaller and smaller instead of starting over each time.
+        // Do I need to run a for loop with an i variable or something like that?
+// Lines 69-72 in Battle Function doesn't quit/End Game like it does in the Explore Function 
+// Doesn't delete enemy after being defeated
