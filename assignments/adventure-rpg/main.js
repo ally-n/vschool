@@ -71,7 +71,7 @@ function battle () {
                 gameOver = true;
             } else if (runFight === 'f') {
                console.log('You use the force! ');
-                let attack = Math.floor(Math.random() * (randomEnemy.maxDamage - randomEnemy.minDamage));
+                let attack = Math.floor(Math.random() * (randomEnemy.maxDamage - randomEnemy.minDamage)) + randomEnemy.minDamage;
                 let enemyCurrentHP = randomEnemy.HP - attack
                 console.log('You dealt ' + attack + ' points of damage! ' + randomEnemy.enemyName + ' currently has ' + enemyCurrentHP + ' health points left.')
                 let enemyAttack = Math.floor(Math.random()* (randomEnemy.maxDamage - randomEnemy.minDamage));
@@ -117,4 +117,4 @@ if (gameOver = true) {
 // When line 39-40 isn't commented out, it prints the 'p' command even if I hit w
 // Need randomEnemy.HP and userHealth to get smaller and smaller instead of starting over each time.
 // Need userCurrentHP to be in another if statement on line 89- says it is undefined- connected to previous issue.
-// I know it's not pulling the right numbers for the attack amounts (it's subtracting instead of doing that range) but I haven't spent time fixing it yet.
+// Lines 69-71 in Battle Function doesn't quit/End Game like it does in the Explore Function 
