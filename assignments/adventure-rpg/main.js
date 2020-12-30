@@ -31,8 +31,8 @@ function explore () {
         if (choice === 'q') {
             console.log('May the force be with you. Goodbye. ')
             gameOver = true 
-        // }else if (choice === 'p' || 'print'){
-        //     console.log(userName + ' has ' + userHealth + ' HP, and the following items:' + inventory)
+        }else if (choice === 'p' || choice === 'print'){
+            console.log(userName + ' has ' + userHealth + ' HP, and the following items:' + inventory)
         } else if (choice === 'w') {
             console.log('Walking...')
             if (enemyAppears) {
@@ -77,44 +77,42 @@ function fight(obj) {
         console.log('You defeated ' + obj.enemyName + '. Take a look at your inventory to see the new item added! ')
         console.log(inventory)
         console.log('Let\'s continue on your journey to the Seeing Stone.')
-        enemies.splice(enemies.indexOf(obj), 1)
-        explore() 
+        enemies.splice(enemies.findIndex(Enemy => Enemy.enemyName === obj.enemyName), 1)        
+        return;
     } 
     console.log('Watch out for an attack! Oh no- ' + obj.enemyName + ' dealt ' + enemyAttack + ' points of damage to you! You currently have ' + userHealth + ' health points left.')
     if (userHealth <= 0) {
         console.log('You have died. The force can\'t save you now. BYE. ')
+        gameOver === true
     }
     if (enemies.length = 0) {
-        hasWon = true;
+        hasWon === true;
     }
 }
 function run() {
     let escape = Math.floor(Math.random()*2)
     if (escape === 1) {
         console.log('You\'ve escaped! Continue on your journey. ');
-        explore()
-    } else if (escape >= 0.5) {
+    } else {
         console.log('Oh no,' + userName + ', you weren\'t quite fast enough. They\'re about to attack! Are you going to defend yourself?');
     }   
 }
 function quit() {
     console.log('May the force be with you. ')
-    gameOver = true;
+    gameOver === true;
 }
-
-// if (gameOver = true) {
-//     console.log('HEY LOSER- I CAN\'T BELIEVE YOU LOST ')
-//     console.log('GAME OVER')
-// }
-
-if (hasWon = true) {
+if (gameOver === true) {
+    console.log('HEY LOSER- I CAN\'T BELIEVE YOU LOST ')
+    console.log('GAME OVER')
+}
+if (hasWon === true) {
     console.log('We\'ve arrived to the Seeing Stone! Congratulations. I wish you luck on your adventure.')
     console.log('GAME OVER')
 }
 }
 
 // Issues
-// When line 34-35 aren't commented out, it prints the 'p' command even if I hit 'w'
-// Lines 69-72 in Battle Function doesn't quit/End Game like it does in the Explore Function (lines 31-33- but those lines ONLY work the first time it runs. Not after you finish a battle loop and go back to the explore loop.)
+// Lines 61-62 in Battle Function doesn't quit/End Game like it does in the Explore Function (lines 31-33- but those lines ONLY work the first time it runs. Not after you finish a battle loop and go back to the explore loop.)
 // Tried to create a quit function to see if that would help, but it still doesn't work. 
-// Created a selectEnemy function in order to be able to delete it, but it doesn't work either. 
+// Created a selectEnemy function in order to be able to delete the enemy once you defeat it, but it just keeps repeatedly fighting the same enemy. Is it because return doesn't get out of both the fight AND Battle functions?
+// I tried putting a return after line 64 but that created a new error.
