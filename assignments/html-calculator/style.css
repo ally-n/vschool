@@ -1,0 +1,47 @@
+body {
+    display: flexbox;
+    text-align: center;
+    font-size: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+.header {
+    text-align: center;
+    color:coral;
+}
+
+.buttonStyle {
+    width: 75px;
+    height: 50px;
+    font-size: 20px;
+}
+.add {
+    padding: 20px;
+}
+
+.sub {
+    padding: 20px;
+}
+
+.mult {
+    padding: 20px;
+}
+
+#submit1 {
+    font-size: 30px;
+}
+
+#submit2 {
+    font-size: 30px;
+}
+
+#submit3 {
+    font-size: 30px;
+}
+
+#clearBtn {
+    font-size: 20px;
+    background-color:goldenrod;
+}
