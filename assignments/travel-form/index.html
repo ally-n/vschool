@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        Travel Form
+    </div>
+    <form name="my-form"> 
+        <div class="form-options">
+            First Name:<input type="text" name="firstName">
+        </div>
+        <div class="form-options">
+            Last Name:<input type="text" name="lastName">
+        </div>
+        <div class="form-options">
+            Age:<input type="number" name="age">
+        </div>
+        <div class="form-options">
+            Gender:
+            <input type="radio" name="gender" value="male" id="male">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" value="female" id="female">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" value="meh.." id="meh">
+            <label for="meh">Other</label>
+        </div>
+        <div class="form-options">
+            Where are you traveling?
+            <select name="locations" id="places">
+                <option> Please Select One</option>
+                <option value="reykjavik">Reykjavik, Iceland</option>
+                <option value="rome">Rome, Italy</option>
+                <option value="taipei">Taipei, Taiwan</option>
+            </select>
+        </div>
+        <div class="form-options">
+            Please select any dietary needs you may have.
+        </div>
+        <div class="form-options">
+            <input type="checkbox" name="restrictions" value="vegetarian">
+            <label for="restrictions">Vegetarian</label>
+            <input type="checkbox" name="restrictions" value="lactose-free">
+            <label for="restrictions">Lactose Free</label>
+            <input type="checkbox" name="restrictions" value="peanut-allergy">
+            <label for="restrictions">Peanut Allergy</label>
+        </div>
+        <div class="form-options">
+            <button id="submit">Submit Form</button>
+        </div>
+    </form>
+
+    <script src="main.js"></script>
+</body>
+</html>
