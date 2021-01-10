@@ -1,0 +1,40 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+.flex-pics {
+    display: flex;
+}
+
+.pictures {
+    width: 200px;
+    padding: 0px 70px 0px 70px;
+}
+
+.mario-peach {
+    width: 370px;
+}
+
+.baddies {
+    font-size: 20px;
+}
+
+#owedBtn {
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+#clearBtn {
+    padding-top: 5px;
+    font-size: 20px;
+}
+
+.btnText {
+    font-size: 20px;
+}
+
+.footer {
+    text-align: left;
+    padding-top: 50px;
+}
