@@ -1,0 +1,14 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    text-align: center;
+}
+
+.flexbox {
+    display: flex;
+}
+
+.clicker-text {
+    padding-top: 150px;
+    text-align: center;
+}
