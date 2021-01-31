@@ -1,0 +1,114 @@
+body {
+    background-color: black;
+}
+
+.flexbox {
+    display: flex;
+}
+#title {
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 75px;
+    text-align: center;
+    letter-spacing: 45px;
+}
+.djbox1 {
+    width: 30%;
+    height: 150px;
+    background-color:white;
+    margin: 30px;
+    border-radius: 10px;
+    transition-duration: 2s;
+}
+.djbox1:hover {
+    width: 30%;
+    height: 150px;
+    background-color:rgb(255, 255, 66);
+    margin: 30px;
+    border-radius: 50%;
+    transition-duration: .5s;
+}
+.djbox2 {
+    width: 30%;
+    height: 150px;
+    background-color: white;
+    margin: 30px;
+    transition-duration: 2s;
+    border-radius: 10px;
+}
+.djbox2:hover {
+    width: 35%;
+    height: 160px;
+    background-color: rgb(226, 30, 30);
+    margin: 30px;
+    transition-duration: .5s;
+    
+}
+.djbox3 {
+    width: 30%;
+    height: 150px;
+    background-color: white;
+    margin: 30px;
+    transition-duration: 2s;
+    border-radius: 10px;
+}
+.djbox3:hover {
+    width: 30%;
+    height: 140px;
+    background-color: rgb(82, 230, 45);
+    margin: 30px;
+    transition-duration: .25s;
+
+}
+.djbox4 {
+    width: 30%;
+    height: 150px;
+    background-color: white;
+    margin: 30px;
+    transition-duration: 2s;
+    border-radius: 10px;
+
+}
+.djbox4:hover {
+    width: 30%;
+    height: 140px;
+    background-color: rgb(87, 213, 230);
+    margin: 30px;
+    transition-duration: .25s;
+
+}
+.djbox5 {
+    width: 30%;
+    height: 150px;
+    background-color: white;
+    margin: 30px;
+    transition-duration: 2s;
+    border-radius: 10px;
+
+}
+.djbox5:hover {
+    width: 30%;
+    height: 160px;
+    background-color: rgb(167, 41, 199);
+    margin: 30px;
+    transition-duration: 1s;
+
+}
+.djbox6 {
+    width: 30%;
+    height: 150px;
+    background-color: white;
+    margin: 30px;
+    transition-duration: 2s;
+    border-radius: 10px;
+
+}
+.djbox6:hover {
+    width: 30%;
+    height: 150px;
+    background-color: rgb(241, 179, 35);
+    margin: 30px;
+    border-radius: 50%;
+    transition-duration: 2s;
+
+}
