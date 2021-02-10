@@ -25,4 +25,3 @@ function upperLower(str) {
     return firstHalf + secondHalf
 }
 console.log(upperLower("Hello World"))
-
