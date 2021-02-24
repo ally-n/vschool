@@ -65,33 +65,24 @@ console.log(combineAnimals(realAnimals, magicalAnimals, mysteriousAnimals))
 
 // Make the code more ES6xy
 
-function product(...numbers) {  
-  // var numbers = [];
-  return numbers.reduce((acc, number) =>{acc * number}, 1)
+let product = (...numbers) => {
+  return numbers.reduce((acc, number) => {
+  return acc * number
+  },1)
 }
+console.log(product(1, 2, 3, 4, 5))
 
-console.log(product(2, 3, 5))
+// Make the code more ES6xy using both rest and spread operators 
 
-// function unshift(array, a, b, c, d, e) {  
-//   return [a, b, c, d, e].concat(array);
-// }
+const unshift = (array, ...arr) => array.concat(...arr);
+
+console.log(unshift(["blue", "green", "purple"], 1, 2, 3))
 
 // // Write some destructuring code to help this function out. Use object literals to simplify it:
 
-// function populatePeople(names){
-//     return names.map(function(name){
-//         name = name.split(" ");
-//         // your code
-//         return {
-//             firstName: firstName,
-//             lastName: lastName
-//         }
-//     })
-// }
+const populatePeople = (names) => {return names.map((name) => {
+      const [firstName, lastName] = name.split(" ")
+      return {firstName, lastName};
+})}
 
-// populatePeople(["Frank Peterson", "Suzy Degual", "Liza Jones"])
-// //[
-// //  {firstName: "Frank", lastName: "Peterson"},
-// //  {firstName: "Suzy", lastName: "Degual"},
-// //  {firstName: "Liza", lastName: "Jones"},
-// //]
+console.log(populatePeople(["Frank Peterson", "Suzy Degual", "Liza Jones"]))
