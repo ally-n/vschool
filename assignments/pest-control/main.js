@@ -1,6 +1,6 @@
 const form = document["my-form"]
-document.getElementById("owedBtn").addEventListener("click", addBaddies);
-function addBaddies() {
+form.addEventListener("submit", addBaddies)
+function addBaddies(event) {
     event.preventDefault()
     const goomba = form.goombas.value
     const bobomb = form.bobombs.value

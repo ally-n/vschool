@@ -35,10 +35,9 @@ var peopleArray = [
         age: 82
     }
 ]
-
-
-function sortedOfAge(a, b){
-    peopleArray.sort(function(a, b) {
+function sortedOfAge(arr){
+    let overAge = arr.filter(over18 => over18.age >= 18);
+    overAge.sort(function(a, b) {
         let name1 = a.lastName.toLowerCase();
         let name2 = b.lastName.toLowerCase();
         if (name1 > name2) {
@@ -48,10 +47,9 @@ function sortedOfAge(a, b){
         }
         return 0
     })
-    let overAge = peopleArray.filter(over18=> over18.age >= 18);
-    return overAge
- }
-
- console.log(sortedOfAge(peopleArray));
- console.log(sortedOfAge("<li>" + peopleArray.firstName + peopleArray.lastName + " is " + peopleArray.age + "</li>"));
- 
+    let result = overAge.map(function(elem){
+        return `<li>${elem.firstName} ${elem.lastName} is ${elem.age}</li>`;
+     })
+     return result
+}
+ console.log(sortedOfAge(peopleArray))

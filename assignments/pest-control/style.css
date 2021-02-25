@@ -30,6 +30,11 @@ body {
     font-size: 20px;
 }
 
+#owedBtn {
+    padding-top: 5px;
+    font-size: 20px;
+}
+
 .btnText {
     font-size: 20px;
 }
