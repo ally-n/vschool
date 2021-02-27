@@ -1,0 +1,67 @@
+{
+    "appetizers": [
+        {
+            "name": "Mediterranean Platter & Dip",
+            "ingredients": ["pita chips", "hummus", "carrots", "celery", "cucumber"],
+            "description": "A delightful array of veggies and dippables to enjoy with our original garlic avocado hummus. "
+        },
+        {
+            "name": "Greek Meatballs Keftethakia",
+            "ingredients": ["ground beef", "sheep meat", "mint", "eggs", "stale bread", "olive oil"],
+            "description": "Declicious bite-sized meatballs with tasty Greek herbs fried in olive oil. "
+        },
+        {
+            "name": "Roasted Olives",
+            "ingredients": ["kalamata olives", "oregano", "garlic", "parsley", "lemon"],
+            "description": "Bursting with flavor, enjoy these roasted olives with incredible herbs to bring out their flavor. "
+        }
+    ],
+    "cold sands": [
+        {
+            "name": "Classic Greek Gyro",
+            "ingredients": ["ground lamb", "spices", "red onion", "lettuce", "tzatziki sauce", "flatbread"],
+            "description": "Full of spices, these gyros are filled with delicious meat, tzatziki sauce, and all the fixings you could imagine. "
+        },
+        {
+            "name": "Home Style Sandwich",
+            "ingredients": ["beef", "worcestershire sauce", "garlic", "yogurt sauce", "bread"],
+            "description": "Simply delicious- a classic take on a greek delight. The Home Style Sandwich will tickle the senses. "
+        }
+    ],
+    "hot sands": [
+        {
+            "name": "Greek Salad Sandwich",
+            "ingredients": ["bread", "tzatziki sauce", "peperoncini", "tomatoes", "feta"],
+            "description": "Warm bread topped with delicious sauce, cucumbers, olives, feta, and MORE. "
+       },
+        {
+            "name": "Meatball Sub",
+            "ingredients": ["ground beef", "sheep meat", "mint", "eggs", "stale bread", "olive oil", "bread"],
+            "description": "Our delicious meatballs in a sub with all the toppings you could want. "
+        }
+    ],
+    "desserts": [
+        {
+            "name": "Greek Filo Pull-Apart",
+            "ingredients": ["filo", "butter", "brown sugar", "spices", "syrup"],
+            "description": "This Greek-inspired pastry dessert is perfect for a cold winter's night. "
+        },
+        {
+            "name": "Lemon Bougatsa",
+            "ingredients": ["ice cream", "butter", "eggs", "milk", "lemon"],
+            "description": "Perfect for sharing, this Greek dessert is sweet, tasty, and low-fat. Served with ice cream."
+        }
+    ],
+    "drinks": [
+        {
+            "name": "Coke",
+            "ingredients": ["natural flavors", "unnatural flavors", "sugar", "more sugar", "coke"],
+            "description": "The best way to enjoy some calories."
+        },
+        {
+            "name": "Water",
+            "ingredients": ["water"],
+            "description": "The best beverage known to humankind. Simple. Delicious. Refreshing. "
+        }
+    ]
+}
