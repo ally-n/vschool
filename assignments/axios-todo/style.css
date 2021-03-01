@@ -1,0 +1,17 @@
+html {
+    margin: 0px;
+    min-height: 100%;
+}
+
+.background-image img{
+    background-image: url(/axios-todo/assets/todo1.png);
+    background-size: cover;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+    html {
+       background-image: url(smaller-image.jpg);
+    }
+  }
