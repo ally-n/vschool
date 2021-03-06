@@ -1,15 +1,24 @@
-// function getData(){
-//     axios.get("https://api.vschool.io/[ally_n]/todo")
-//         .then(res => listData(res.data))
-//         .catch(err => console.log(err))
-// }
+//FORM & POST
+const todoForm = document["todo-form"]
+todoForm.addEventListener("submit", function(e){
+    e.preventDefault()
+    const newTodo = {
+        title: todoForm.title.value,
+        price: todoForm.price.value,
+        description: todoForm.description.value,
+        imgUrl: todoForm.imgURL.value
+    }
+    todoForm.title.value = ""
+    todoForm.price.value = ""
+    todoForm.description.value = ""
+    todoForm.imgURL.value = ""
+    axios.post("https://api.vschool.io/[ally_n]/todo", newTodo)
+        .then(res => getData())
+        .catch(err => console.log(err))
+})
 
-//NEED TO WORK ON
-//Format and organization
-//edit and delete buttons working
-
-
-axios.get("https://api.vschool.io/[ally_n]/todo")
+function getData(){
+    axios.get("https://api.vschool.io/[ally_n]/todo")
     .then(response => {
         for(let i = 0; i < response.data.length; i++){
             const h1 = document.createElement('h1')
@@ -21,7 +30,6 @@ axios.get("https://api.vschool.io/[ally_n]/todo")
             var x = document.createElement("INPUT");
             x.className = 'checkbox';
             var label = document.createElement("label");
-            label.textContent = "Completed?"
             x.setAttribute("type", "checkbox")
             x.setAttribute("name", "completed")
             h1.textContent = response.data[i].title
@@ -40,12 +48,12 @@ axios.get("https://api.vschool.io/[ally_n]/todo")
             document.getElementById('todo-list').appendChild(delBtn)
             document.getElementById('todo-list').appendChild(img)
             document.getElementById('todo-list').appendChild(editBtn)
-
-        //add edit and delete buttons
-        //add text ` Check here once complete!` on checkbox  
         }
     })
     .catch(error => console.log(error))
+}
+getData()
+
 
     var deleteTodo = function(singleTodoObject) {
         // This "singleTodoObject" I passed in has an attribute "_id" I can use to delete it
@@ -60,6 +68,9 @@ axios.get("https://api.vschool.io/[ally_n]/todo")
         };
 
 
+
+
+        
 // function listData(data){
 //     clearList()
     
@@ -84,28 +95,8 @@ axios.get("https://api.vschool.io/[ally_n]/todo")
 //     }
 // }
 
-// getData()
 
-const todoForm = document["todo-form"]
 
-todoForm.addEventListener("submit", function(e){
-    e.preventDefault()
-    
-    const newTodo = {
-        title: todoForm.title.value,
-        price: todoForm.price.value,
-        description: todoForm.description.value,
-        imgUrl: todoForm.imgURL.value
-    }
-    
-    todoForm.title.value = ""
-    todoForm.price.value = ""
-    todoForm.description.value = ""
-    todoForm.imgURL.value = ""
-    
-    axios.post("https://api.vschool.io/[ally_n]/todo", newTodo)
-        .then(res => getData())
-        .catch(err => console.log(err))
 
-})
+
 
