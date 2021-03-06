@@ -1,44 +1,112 @@
-// You will be creating a Todo list.
+// function getData(){
+//     axios.get("https://api.vschool.io/[ally_n]/todo")
+//         .then(res => listData(res.data))
+//         .catch(err => console.log(err))
+// }
+    axios.get("https://api.vschool.io/[ally_n]/todo")
+        .then(response => {
+            for(let i = 0; i < response.data.length; i++){
+                const h1 = document.createElement('h1')
+                const h2 = document.createElement('p')
+                const p = document.createElement('p')
+                const img = document.createElement('img')
+                const editBtn = document.createElement('BUTTON')
+                const delBtn = document.createElement('BUTTON')
+                var x = document.createElement("INPUT");
+                x.className = 'checkbox';
+                var label = document.createElement("label");
+                x.setAttribute("type", "checkbox")
+                h1.textContent = response.data[i].title
+                h2.textContent = response.data[i].price
+                p.textContent = response.data[i].description
+                img.src = response.data[i].imgUrl
+                img.width = 300
+                editBtn.textContent = "Edit"
+                delBtn.textContent = "Delete"
+                document.getElementById('todo-list').style.padding.bottom = "100px";
+                document.getElementById('todo-list').appendChild(h1)
+                document.getElementById('todo-list').appendChild(h2)
+                document.getElementById('todo-list').appendChild(p)
+                document.getElementById('todo-list').appendChild(x)
+                document.getElementById('todo-list').appendChild(label)
+                document.getElementById('todo-list').appendChild(delBtn)
+                document.getElementById('todo-list').appendChild(img)
+                document.getElementById('todo-list').appendChild(editBtn)
+        }
+    })
+    .catch(error => console.log(error))
 
-// Use the totally rad todo API created by the legendary Bob. Here are the docs for it.
+    delBtn.addEventListener("click", function(){
+        axios.delete("https://api.vschool.io/[ally_n]/todo" + object._id)
+            .then(res => getData())
+            .catch(error => console.log(error))
+    })
 
-// For the requirements below, you'll be building a frontend site that pulls your list of todos down from the API to display them, and allows the user to perform other CRUD methods on them as well.
+    // var deleteTodo = function(singleTodoObject) {
+    //     // This "singleTodoObject" I passed in has an attribute "_id" I can use to delete it
+    //     // I just need to add that "_id" to the end of my URL to which I'm sending this DELETE request
+    //         axios.delete("https://api.vschool.io/jonsmith/todo/" + singleTodoObject._id).then(function(response) {
+    //             // This made a DELETE request to "https://api.vschool.io/jonsmith/todo/5630dcfcac2dfab2428b8c02"
+    //             // Assuming I used the object from the example above.
+    //             alert("Your todo was successfully deleted!")
+    //         }, function(response) {
+    //             alert("There was a problem deleting your todo :(");
+    //         });
+    //     };
 
-// For example, when the user adds a new todo, it will also POST that todo to the database using the provided API. This way, once the change is made, it's made permanently. When you refresh the page, since it's pulling from the data on the API, it should pull the current list of todos.
+// button.addEventListener("click", function(){
+//     axios.delete("https://api.vschool.io/scrimbalessons/todo/5d8bd511ee91575e6d49e06e")
+//         .then(response => console.log(response.data))
+//         .catch(error => console.log(error))
+// })
 
-// You will do the parts of this assignment in steps. You're encouraged to have someone else look at your code between each step. This will help you to become comfortable talking about code, and might open you up to other ways of doing things. Any suggestions given to you by fellow students should be considered, but don't feel obligated to apply the suggestions you get.
+// function listData(data){
+//     clearList()
+    
+//     for(let i = 0; i < data.length; i++){
+//         const h1 = document.createElement('h1')
+//         const h2 = document.createElement('h2')
+//         const p = document.createElement('p')
+//         // const h1 = document.createElement('h2') will be image URL
+//         h1.textContent = data[i].title
+//         h2.textContent = data[i].price
+//         p.textContent = data[i].description
+//         document.getElementById('todo-list').appendChild(h1)
+//         document.getElementById('todo-list').appendChild(h2)
+//         document.getElementById('todo-list').appendChild(p)
+//     }
+// }
 
-// Requirements
-// Use the checklist in Trello to mark off each step before proceeding to the next.
+// function clearList(){
+//     const list = document.getElementById('todo-list')
+//     while(list.firstChild){
+//         list.removeChild(el.firstChild)
+//     }
+// }
 
-// Part 1 - GET
-// The user can see their current list of todos.
-// Todos show up as soon as the page loads.
-// If a todo item is complete, it should have a strikethrough line on it
-// Images should be displayed as images if there are any
-// Hints:
+getData()
 
-// A createTodo function that takes one todo and inserts it to the DOM is very userfull
+const todoForm = document["todo-form"]
 
-// Use postman to get those first few todos in there with some images so you can style your list!
+todoForm.addEventListener("submit", function(e){
+    e.preventDefault()
+    
+    const newTodo = {
+        title: todoForm.title.value,
+        price: todoForm.price.value,
+        description: todoForm.description.value,
+        imgUrl: todoForm.imgURL.value
+    }
+    
+    todoForm.title.value = ""
+    todoForm.price.value = ""
+    todoForm.description.value = ""
+    todoForm.imgURL.value = ""
+    
+    axios.post("https://api.vschool.io/[ally_n]/todo", newTodo)
+        .then(res => getData())
+        .catch(err => console.log(err))
 
-// Part 2 - POST
-// The user can add new todos to their list. The new item should be posted to the todo API so a future reload of the page will still display that new todo item. Making the new todo appear without a refresh is extra credit, but you're encouraged to attempt it.
-// A user should be able to geive the item a title.
-// A user should be able to give the item a price.
-// A user should be able to give the item a description.
-// A user should be able to attach an imgUrl to the item
-// Part 3 - PUT Part 1
-// Each todo will have a checkbox where it can be marked complete or incomplete
-// Checking the checkbox should update the database
-// Part 4 - DELETE
-// A user will be able to delete todos (this is different from marking a todo as "completed")
-// Each todo should be rendered with a button marked "X" or "Delete" that when clicked, will delete the Todo
-// Part 5 - PUT Part 2 (extra credit)
-// Each Todo will have an "edit" button.
-// When clicked, the info will change to input boxes that are autofilled with the old Todo data
-// A user can change the value of these inputs
-// When the "edit" button is clicked, it will change to a "save" button.
-// When "save" is clicked, the form will disapear, and the new values will be displayed.
-// On save, the todo will be edited in the database
-// Read through the "using id" section in the API documentation to learn how to delete items using the item's unique id.
+})
+
+

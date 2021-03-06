@@ -1,17 +1,144 @@
-html {
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One|Libre+Baskerville:400,400italic);
+@import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap); 
+@import url(https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap);
+
+body {
     margin: 0px;
-    min-height: 100%;
+    font-family: 'Fredoka One', Arial, Helvetica, sans-serif;
+    background-color: #7dabea;
+    color: #262a5a;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 700px;
+  text-align: center;
 }
 
-.background-image img{
-    background-image: url(/axios-todo/assets/todo1.png);
-    background-size: cover;
+form {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  padding-right: 120px;
+  padding-top: 150px;
+  padding-left: 210px;
+  text-align: center;
+  
+}
+.computer {
+  background-image: url(/axios-todo/assets/5.svg);
+  background-repeat: no-repeat;
+  grid-row: 1/2;
+  grid-column: 1/2;
 }
 
+label, input {
+  display: block;
+  margin-bottom: 10px;
+  border: #7dabea;
+  border-radius: 4px;
+  outline: none;
+  font-family: 'Lato';
+}
 
+#submit-button {
+  border-radius: 4px !important;
+  color: white  !important;
+  font-family: 'Lato' !important;
+  background-color: #fa7a4a !important;
+  border: none  !important;
+  position: static !important;
+}
 
+#todo-list {
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+} 
+
+h1 {
+  grid-column: 1/4;
+  color:#262a5a;
+  border-style: solid;
+}
+
+h2 {
+  grid-column: 1/2;
+}
+
+img {
+  grid-column: 2/3;
+}
+.checkbox {
+  grid-column: 3/4;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  left: 23%;
+  top: 15%;
+}
+
+.checkbox::before {
+  content: "Done?";
+  font-family: 'Fredoka One', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color:#262a5a;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding-left: 45px;
+  position: relative;
+  top: 15%;
+}
+
+label {
+  grid-column: 3/4;
+}
+button {
+  width: 50px;
+  height: 30px;
+  border-radius: 4px;
+  color: white;
+  font-family: 'Lato';
+  background-color: #fa7a4a;
+  border: none;
+  position: relative;
+  left: 40%;
+  top: 40%;
+
+}
 @media only screen and (max-width: 767px) {
-    html {
-       background-image: url(smaller-image.jpg);
-    }
+    
   }
+/* 
+
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px; 
+    border: 1px solid #ffffff;
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 6px;
+    margin-bottom: 16px; 
+    resize: vertical; 
+    font-family: 'Fjalla One', serif;
+    outline: none;
+  }
+  
+input[type=text]:focus {
+    border: 5px solid #ffffff; 
+    outline: none;
+}
+  input[type=submit] {
+    background-color: #6f5e5c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Fjalla One', serif;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #002626;
+  } */

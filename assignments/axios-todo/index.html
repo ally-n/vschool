@@ -7,10 +7,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <img class="background-image" src="/axios-todo/assets/todo1.png" alt="to-do list">
+    <div class="grid">
+        <div class="computer">
+        </div>
+        <form name="todo-form">
+            <label>
+                <input type="text" name="title" placeholder="Title of your To-Do"/>
+            </label>
+            <label>
+                <input type="text" name="price" placeholder="Price"/>
+            </label>
+            <label>
+                <input type="text" name="description" placeholder="Description"/>
+            </label>
+            <label>
+                <input type="text" name="imgURL" placeholder="Add image URL here"/>
+            </label>
+            <label>
+                <button id="submit-button">Submit</button>
+            </label>
+        </form>
+        <div id="todo-list"></div>
     </div>
     
+    
+    <div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
     <script src="main.js"> </script>
 </body>
 </html>
