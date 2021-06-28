@@ -1,0 +1,56 @@
+.gridBox {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  margin: 20px;
+  border: solid 2px #136B8E;
+  background-color: #126687;
+}
+
+.inputForm {
+  margin: 10px;
+  border: grey 2px solid;
+}
+
+.textBox {
+  grid-column: 1/3;
+  height: 100px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+button {
+  display: flex;
+  margin: auto;
+  grid-column: 1/3;
+  width: 70px;
+  justify-content: center;
+  
+}
+
+.badgeBox {
+  border: solid 2px grey;
+  margin: 20px;
+  border-radius: 14px;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+}
+
+.badgeTitle {
+  grid-column: 1/3;
+  border: solid 2px grey;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: grey;
+  margin: 0;
+}
+
+.allAbout {
+  border: solid 2px grey;
+  padding: 20px;
+  margin: 20px;
+  height: 100px;
+  grid-column: 1/3;
+}

@@ -1,0 +1,22 @@
+input {
+  font-family: 'Courier New', Courier, monospace;
+  width: 150px;
+  display: flex;
+  
+}
+
+button {
+  font-family: 'Courier New', Courier, monospace;
+  width: 150px;
+
+}
+
+h1 {
+  font-family: 'Courier New', Courier, monospace;
+  padding-top: 100px;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+
+}

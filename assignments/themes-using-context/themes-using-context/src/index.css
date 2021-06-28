@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco&display=swap');
+
+body {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-family: 'Sue Ellen Francisco', cursive;
+  text-align: center;
+}
+
+#randomBtn {
+  height: 60px;
+  width: 120px;
+  padding: 0 32px;
+  border-radius: 16px;
+  border: none;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  text-shadow: 1px 1px 0px black;
+  background: linear-gradient(170deg, palevioletred 5%, #dfd0db 95%);
+}
+
+.flowerA {
+  background-color: pink;
+  background-image: url(./flower1.jpg);
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.flowerB {
+  background-color: beige;
+  background-image:  url(./flower2.jpg);
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.flowerC {
+  background-color: forestgreen;
+  background-image: url(./flower3.jpg);
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+header {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px 40px 40px;
+}
+
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: grey;
+  text-decoration: none;
+}
+
+a:active {
+  color: black;
+  text-decoration: none;
+}

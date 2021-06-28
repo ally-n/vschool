@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  height: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 100px;
+}
+
+.background {
+  height: 1000px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+button {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  border-radius: 50%;
+
+}
