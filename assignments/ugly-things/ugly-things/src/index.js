@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
 import App from "./App"
-import {UglyContextProvider} from "./UglyThingsContext"
+import {UglyThingsContextProvider} from "./UglyThingsContext"
 
 
 ReactDOM.render(
-  <UglyContextProvider>
+  <UglyThingsContextProvider>
     <App />
- </UglyContextProvider>
+ </UglyThingsContextProvider>
   ,document.getElementById('root')
 );
 

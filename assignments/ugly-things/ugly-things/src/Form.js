@@ -1,32 +1,11 @@
-//    Need to do: handleSubmit, clear the form, context, edit/delete, display
+//    Need to do: edit/delete, display
 
-import React, {useState} from "react"
-import axios from "axios"
+import React, { useContext } from "react"
+import { UglyThingsContext } from "./UglyThingsContext"
 
-function Form() {
-    const [inputData, setInputData] = useState({title: "", description: "", imgUrl: ""})
 
-    function handleChange(e) {
-        setInputData({...inputData, [e.target.name]: e.target.value})
-    }
-
-    function handleSubmit(e) {
-        e.preventDefault()
-        axios.post("https://api.vschool.io/ally_n/thing/", inputData)
-        .then((res)=> {
-            console.log(res)
-            console.log(res.data)
-            refreshPage()
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-   }
-
-   function refreshPage() {
-        window.location.reload(false);
-    }
-
+function Form(props) {
+    const {inputData, handleSubmit, handleChange} = useContext(UglyThingsContext)
     return (
         <div>
             Gimme the Uglies
