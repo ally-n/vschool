@@ -38,9 +38,9 @@ function UglyThingsContextProvider(props) {
         .catch(error => console.log(error))
     }
 
-    function shouldThingEdit(id) {
-        console.log(shouldEdit)
-        setShouldEdit(prevshouldEdit => prevshouldEdit ===  shouldEdit ? !shouldEdit : shouldEdit)
+
+    function shouldThingEdit() {
+        setShouldEdit(prev => !prev)
         console.log(shouldEdit)
     }
 
@@ -55,7 +55,7 @@ function UglyThingsContextProvider(props) {
     }, [])
 
     return (
-       <UglyThingsContext.Provider value={{inputData, data, handleSubmit, handleChange, deleteUgly, shouldThingEdit}}>
+       <UglyThingsContext.Provider value={{inputData, data, shouldEdit, handleSubmit, handleChange, deleteUgly, shouldThingEdit}}>
            {props.children}
        </UglyThingsContext.Provider>
     )
