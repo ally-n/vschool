@@ -6,7 +6,7 @@ import './index.css';
 
 
 function UglyDisplay() {
-   const {data, deleteUgly, shouldEdit, shouldThingEdit} = useContext(UglyThingsContext)
+   const {data, deleteUgly, editUgly, shouldEdit, shouldThingEdit} = useContext(UglyThingsContext)
 
    return (
        <div>
@@ -31,9 +31,9 @@ function UglyDisplay() {
                 <h1 key={item._id}>{item.title}</h1>
                 <p>{item.description}</p>
                 <img src={item.imgUrl} alt={item.title} height="300px" width="300px"/>
-                <button onClick={shouldThingEdit}>Edit</button> 
-                <button onClick={() => deleteUgly(item._id)} >Delete</button>
-                <Form />
+                {/* <button>Edit</button>  */}
+                <button onClick={shouldThingEdit}>Cancel</button>
+                <Form id={item._id}/>
             </div>
             ))}
         </div>)}
@@ -43,3 +43,4 @@ function UglyDisplay() {
 }
 export default UglyDisplay
 
+//Need to figure out how to get ID to correlate to correct axios.put, don't map through all of the edits, correlate correct value places

@@ -12,15 +12,14 @@ function UglyThingsContextProvider(props) {
     }
 
     function handleSubmit(e) {
+        console.log("handleSubmit")
         e.preventDefault()
         axios.post("https://api.vschool.io/ally_n/thing/", inputData)
         .then((res)=> {
             console.log(res)
-            console.log(res.data)
             refreshPage()
         })
-        .catch(error => console.log(error))
-        
+        .catch(error => console.log(error)) 
    }
 
    function refreshPage() {
@@ -28,6 +27,7 @@ function UglyThingsContextProvider(props) {
     }
 
     function deleteUgly(id) {
+        console.log("deleteUgly")
         console.log(id)
         axios.delete("https://api.vschool.io/ally_n/thing/" + id)
         .then(res => {
@@ -38,13 +38,26 @@ function UglyThingsContextProvider(props) {
         .catch(error => console.log(error))
     }
 
+    function editUgly(id) {
+        console.log("editUgly")
+        console.log(id)
+        axios.put("https://api.vschool.io/ally_n/thing/" + id)
+        .then(res => {
+            console.log(res)
+            console.log("item was edited")
+            refreshPage()
+        })
+        .catch(error => console.log(error))
+    }
 
     function shouldThingEdit() {
+        console.log("shouldThingEdit")
         setShouldEdit(prev => !prev)
         console.log(shouldEdit)
     }
 
     useEffect(() => {
+        console.log("useEffect")
         const fetchData = async () => {
             const result = await axios("https://api.vschool.io/ally_n/thing")
             setData(result.data)
@@ -55,7 +68,7 @@ function UglyThingsContextProvider(props) {
     }, [])
 
     return (
-       <UglyThingsContext.Provider value={{inputData, data, shouldEdit, handleSubmit, handleChange, deleteUgly, shouldThingEdit}}>
+       <UglyThingsContext.Provider value={{inputData, data, shouldEdit, handleSubmit, handleChange, deleteUgly, editUgly, shouldThingEdit}}>
            {props.children}
        </UglyThingsContext.Provider>
     )

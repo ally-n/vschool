@@ -3,33 +3,33 @@ import { UglyThingsContext } from "./UglyThingsContext"
 
 
 function EditForm(props) {
-    const {inputData, handleSubmit, handleChange} = useContext(UglyThingsContext)
+    const {inputDataEdit, handleSubmitEdit, handleChangeEdit} = useContext(UglyThingsContext)
     return (
         <div>
-            Gimme the Uglies
+            Edit the Uglies
             <form>
                 <input 
-                    onChange={handleChange} 
+                    onChange={handleChangeEdit} 
                     type="Text" 
                     placeholder="Title" 
                     name="title" 
-                    value={inputData.title} 
+                    value={inputDataEdit.title} 
                 />
                 <input 
-                    onChange={handleChange} 
+                    onChange={handleChangeEdit} 
                     type="Text" 
                     placeholder="Description" 
                     name="description" 
-                    value={inputData.description}  
+                    value={inputDataEdit.description}  
                 />
                 <input 
-                    onChange={handleChange} 
+                    onChange={handleChangeEdit} 
                     type="Text" 
                     placeholder="Image URL" 
                     name="imgUrl" 
-                    value={inputData.imgUrl}  
+                    value={inputDataEdit.imgUrl}  
                 />
-                <button onClick={handleSubmit}>Submit</button>
+                <button onClick={handleSubmitEdit}>Submit</button>
             </form>
         </div>
     )

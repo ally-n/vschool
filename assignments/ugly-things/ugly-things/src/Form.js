@@ -5,7 +5,8 @@ import { UglyThingsContext } from "./UglyThingsContext"
 
 
 function Form(props) {
-    const {inputData, handleSubmit, handleChange} = useContext(UglyThingsContext)
+    const {inputData, handleSubmit, handleChange, shouldEdit, editUgly} = useContext(UglyThingsContext)
+    console.log()
     return (
         <div>
             Gimme the Uglies
@@ -31,10 +32,16 @@ function Form(props) {
                     name="imgUrl" 
                     value={inputData.imgUrl}  
                 />
+                {shouldEdit ? 
                 <button onClick={handleSubmit}>Submit</button>
+                : <button onClick={console.log("weird button was pushed")} >Edit</button>
+                }
+                
             </form>
         </div>
     )
 }
 
 export default Form
+
+// onClick={editUgly(inputData._id)
