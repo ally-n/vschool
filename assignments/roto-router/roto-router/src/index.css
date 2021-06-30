@@ -1,13 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Fjalla One", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.body-section {
+  height: 400px;
+  display: flex;
+  margin: auto;
+  font-size: 40px;
+  color: #e7ad99;
+  width: 75%;
+}
+
+.body-text {
+  margin: auto;
+  width: 50%;
+}
+
+.header {
+  background-color: #495867;
+  height: 200px;
+}
+
+.title {
+  color: white;
+  font-size: 55px;
+}
+
+.links {
+  color: white;
+  justify-content: flex-end;
+  display: flex;
+}
+
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #e7ad99;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #e7ad99;
+  text-decoration: none;
+}
+
+a:active {
+  color: #a7bed3;
+  text-decoration: none;
+}
+
+a {
+  padding: 30px;
+  font-size: 25px;
+}
+
+.footer {
+  background-color: #495867;
+  height: 100px;
+  color: white;
+  padding-top: 90px;
+}
+
+img {
+  padding: 40px;
+  
 }
