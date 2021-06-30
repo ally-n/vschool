@@ -1,46 +1,47 @@
 import React, { useContext } from "react"
 import {UglyThingsContext} from "./UglyThingsContext"
-import EditForm from "./EditForm"
 import Form from "./Form"
 import './index.css';
 
 
 function UglyDisplay() {
-   const {data, deleteUgly, editUgly, shouldEdit, shouldThingEdit} = useContext(UglyThingsContext)
+   const {data, deleteUgly, shouldThingEdit} = useContext(UglyThingsContext)
+   
+   const renderedUglyThings = data.map(item => {
+       return (
+        item.shouldEdit === false?
+        <div className="ugly-item">
+            <h1 key={item._id}>{item.title}</h1>
+            <p>{item.description}</p>
+            <img src={item.imgUrl} alt={item.title} height="300px" width="300px"/>
+            <div>
+                <button onClick={() => shouldThingEdit(item._id)}>Edit</button> 
+                <button onClick={() => deleteUgly(item._id)} >Delete</button>
+            </div>
+           
+        </div>
+        :
+        <div>
+            <h1 key={item._id}>{item.title}</h1>
+            <p>{item.description}</p>
+            <img src={item.imgUrl} alt={item.title} height="300px" width="300px"/>
+            <button onClick={() => shouldThingEdit(item._id)}>Cancel</button>
+            <Form shouldEdit={item.shouldEdit} id={item._id}/>
+        </div>
+
+       )
+   })
 
    return (
-       <div>
-        {shouldEdit ? ( 
-            <div>
-                {data.map((item) => (
-                <div>
-                    {console.log(item._id)}
-                    <h1 key={item._id}>{item.title}</h1>
-                    <p>{item.description}</p>
-                    <img src={item.imgUrl} alt={item.title} height="300px" width="300px"/>
-                    <button onClick={shouldThingEdit}>Edit</button> 
-                    <button onClick={() => deleteUgly(item._id)} >Delete</button>
+       <div className="ugly-area">
+            <div className="ugly-container">
+                <div className="ugly-display">
+                    {renderedUglyThings}
                 </div>
-                ))}
-            </div>)
-    :
-       (<div>
-            {data.map((item) => (
-            <div>
-                {console.log(item._id)}
-                <h1 key={item._id}>{item.title}</h1>
-                <p>{item.description}</p>
-                <img src={item.imgUrl} alt={item.title} height="300px" width="300px"/>
-                {/* <button>Edit</button>  */}
-                <button onClick={shouldThingEdit}>Cancel</button>
-                <Form id={item._id}/>
             </div>
-            ))}
-        </div>)}
        </div>
-    
+       
     )
 }
 export default UglyDisplay
 
-//Need to figure out how to get ID to correlate to correct axios.put, don't map through all of the edits, correlate correct value places

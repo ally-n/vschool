@@ -4,11 +4,12 @@ const UglyThingsContext = React.createContext()
 
 function UglyThingsContextProvider(props) {
     const [inputData, setInputData] = useState({title: "", description: "", imgUrl: ""})
+    const [editInputData, setEditInputData] = useState({title: "", description: "", imgUrl: ""})
     const [data, setData] = useState([])
-    const [shouldEdit, setShouldEdit] = useState("false")
 
-    function handleChange(e) {
-        setInputData({...inputData, [e.target.name]: e.target.value})
+    function handleChange(e, shouldEdit) {
+        shouldEdit?setEditInputData({...editInputData, [e.target.name]: e.target.value})
+        : setInputData({...inputData, [e.target.name]: e.target.value})
     }
 
     function handleSubmit(e) {
@@ -17,13 +18,21 @@ function UglyThingsContextProvider(props) {
         axios.post("https://api.vschool.io/ally_n/thing/", inputData)
         .then((res)=> {
             console.log(res)
+            setInputData({title: "", description: "", imgUrl: ""})
             refreshPage()
         })
         .catch(error => console.log(error)) 
    }
 
    function refreshPage() {
-        window.location.reload(false);
+        return fetchData()
+}
+
+    const fetchData = async () => {
+        const result = await axios("https://api.vschool.io/ally_n/thing")
+        setData(result.data?result.data.map(item => ({...item, shouldEdit: false})):null)
+        console.log(result.data)
+        console.log("the fetchData function is working")
     }
 
     function deleteUgly(id) {
@@ -38,38 +47,30 @@ function UglyThingsContextProvider(props) {
         .catch(error => console.log(error))
     }
 
-    function editUgly(id) {
-        console.log("editUgly")
-        console.log(id)
-        axios.put("https://api.vschool.io/ally_n/thing/" + id)
+    function editUgly(e, id) { 
+        e.preventDefault()
+        axios.put("https://api.vschool.io/ally_n/thing/" + id, 
+        {title: editInputData.title, description: editInputData.description, imgUrl: editInputData.imgUrl}) 
         .then(res => {
-            console.log(res)
-            console.log("item was edited")
+            setEditInputData({title: "", description: "", imgUrl: ""})
             refreshPage()
         })
         .catch(error => console.log(error))
     }
 
-    function shouldThingEdit() {
-        console.log("shouldThingEdit")
-        setShouldEdit(prev => !prev)
-        console.log(shouldEdit)
-    }
+    function shouldThingEdit(id) {
+        const newData = data.map(item => item._id === id? {...item, shouldEdit: !item.shouldEdit}:item) 
+        return setData(newData)
+     }
 
-    useEffect(() => {
+     useEffect(() => {
         console.log("useEffect")
-        const fetchData = async () => {
-            const result = await axios("https://api.vschool.io/ally_n/thing")
-            setData(result.data)
-            console.log(result.data)
-            console.log("the fetchData function is working")
-        }
         fetchData()
     }, [])
 
     return (
-       <UglyThingsContext.Provider value={{inputData, data, shouldEdit, handleSubmit, handleChange, deleteUgly, editUgly, shouldThingEdit}}>
-           {props.children}
+        <UglyThingsContext.Provider value={{inputData, data, editInputData, handleSubmit, handleChange, deleteUgly, editUgly, shouldThingEdit}}>
+        {props.children}
        </UglyThingsContext.Provider>
     )
 

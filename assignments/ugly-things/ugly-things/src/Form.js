@@ -1,47 +1,42 @@
-//    Need to do: edit/delete, display
-
 import React, { useContext } from "react"
 import { UglyThingsContext } from "./UglyThingsContext"
 
 
 function Form(props) {
-    const {inputData, handleSubmit, handleChange, shouldEdit, editUgly} = useContext(UglyThingsContext)
+    const {inputData, editInputData, handleSubmit, handleChange, editUgly} = useContext(UglyThingsContext)
     console.log()
     return (
         <div>
-            Gimme the Uglies
-            <form>
+            <form onSubmit={(e) => {
+                    props.shouldEdit?
+                    editUgly(e, props.id):
+                    handleSubmit(e)     
+            }}>
                 <input 
-                    onChange={handleChange} 
+                    onChange={(e) => handleChange(e, props.shouldEdit)} 
                     type="Text" 
                     placeholder="Title" 
                     name="title" 
-                    value={inputData.title} 
+                    value={props.shouldEdit?editInputData.title:inputData.title}
                 />
                 <input 
-                    onChange={handleChange} 
+                    onChange={(e) => handleChange(e, props.shouldEdit)} 
                     type="Text" 
                     placeholder="Description" 
                     name="description" 
-                    value={inputData.description}  
+                    value={props.shouldEdit?editInputData.description:inputData.description}
                 />
                 <input 
-                    onChange={handleChange} 
+                    onChange={(e) => handleChange(e, props.shouldEdit)} 
                     type="Text" 
                     placeholder="Image URL" 
                     name="imgUrl" 
-                    value={inputData.imgUrl}  
+                    value={props.shouldEdit?editInputData.imgUrl:inputData.imgUrl}  
                 />
-                {shouldEdit ? 
-                <button onClick={handleSubmit}>Submit</button>
-                : <button onClick={console.log("weird button was pushed")} >Edit</button>
-                }
-                
+                <button>Submit</button>
             </form>
         </div>
     )
 }
 
 export default Form
-
-// onClick={editUgly(inputData._id)
