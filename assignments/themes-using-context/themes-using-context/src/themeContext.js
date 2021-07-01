@@ -3,35 +3,21 @@ const {Provider, Consumer} = React.createContext()
 
 class ThemeContextProvider extends Component {
     state = {
-        theme: "flowerA",
-        showMenu: false
+        theme: "flowerA"
     }
 
-    toggleTheme = () => {
-        this.setState(prevState => {
-            return {
-                theme: prevState.theme === "flowerA" ? "flowerB" : "flowerA"
-                //could do a randomizer with 5 different themes!!!
-            }
-        })
-    }
-    showMenuNow = (e) => {
-        e.preventDefault() 
-        console.log("show menu running")
-        this.setState({
-            showMenu: true
-        })
-    }
-
-    closeMenuNow () {
-        this.setState({showMenu: false }, () => {
-            document.removeEventListener('click', this.closeMenuNow)
-        })
-    }
+    onChange = e => {
+        const valueSelected= e.target.value
+        console.log(valueSelected)
+        this.setState(prevState => { 
+            return { 
+                theme : valueSelected}
+            })
+     }
 
     render() {
         return (
-            <Provider value = {{theme: this.state.theme, showMenu: this.state.showMenu, showMenuNow: this.showMenuNow, closeMenuNow: this.closeMenuNow,  toggleTheme: this.toggleTheme}}>
+            <Provider value = {{theme: this.state.theme, onChange: this.onChange}}>
                 {this.props.children}
             </Provider>
         )

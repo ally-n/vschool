@@ -1,25 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
 
 body {
   margin: 0;
   border: 0;
   padding: 0;
-  font-family: 'Sue Ellen Francisco', cursive;
+  font-family: "Fjalla One", sans-serif;
+  text-transform: uppercase;
   text-align: center;
 }
 
-#randomBtn {
-  height: 60px;
-  width: 120px;
-  padding: 0 32px;
-  border-radius: 16px;
-  border: none;
-  color: white;
-  font-size: 13px;
-  font-weight: 600;
-  text-shadow: 1px 1px 0px black;
-  background: linear-gradient(170deg, palevioletred 5%, #dfd0db 95%);
-}
 
 .flowerA {
   background-color: pink;
@@ -30,7 +19,7 @@ body {
 }
 
 .flowerB {
-  background-color: beige;
+  background-color: rgb(236, 201, 135);
   background-image:  url(./flower2.jpg);
   height: 600px;
   background-repeat: no-repeat;
@@ -38,7 +27,7 @@ body {
 }
 
 .flowerC {
-  background-color: forestgreen;
+  background-color: rgba(189, 22, 22, 0.932);
   background-image: url(./flower3.jpg);
   height: 600px;
   background-repeat: no-repeat;
@@ -50,6 +39,7 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 10px 40px 40px 40px;
+  font-size: 25px;
 }
 
 a:link {
@@ -63,11 +53,23 @@ a:visited {
 }
 
 a:hover {
-  color: grey;
+  color: white;
   text-decoration: none;
 }
 
 a:active {
   color: black;
   text-decoration: none;
+}
+
+select {
+  background-color: white;
+  color: black;
+  border-radius: 10%;
+  height: 50px;
+  width: 150px;
+  border: black solid 2px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

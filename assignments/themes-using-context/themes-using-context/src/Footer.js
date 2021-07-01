@@ -5,9 +5,9 @@ function Footer(props) {
     return (
         <ThemeContextConsumer>
             {context => (
-                <div className={context.theme} style={{backgroundImage: "none", height:"60px"}}>
-                    “Don’t let anyone rob you of your imagination, your creativity, or your curiosity." -Mae Jemison"
-                </div>
+                <header className={context.theme} style={{backgroundImage: "none", height:"60px"}}>
+                    photography by ellie mae
+                </header>
             )}
         </ThemeContextConsumer>
     )
@@ -15,4 +15,3 @@ function Footer(props) {
 
 export default Footer
 
-{/* <div className={context.theme}> */}
