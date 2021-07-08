@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap');
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  text-align: center;
+}
+
+
+input::placeholder {
+  font-family: 'IBM Plex Sans', sans-serif;
+  text-align: center;
+}
+
+input {
+  margin: 20px;
+  height: 40px;
+}
+
+.business-list {
+  border: #ffd02f 2px solid;
+  border-radius: 10px;
+  margin: 30px 110px 30px 110px;
+  height: 150px;
+  font-size: 20px;
+ 
+}
+
+button {
+  font-family:'IBM Plex Sans';
+  background-color: black;
+  width: 125px;
+  height: 40px;
+  color: white;
+  margin: auto;
+
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px;
+}
+
+.link-wrapper {
+  margin: 10px;
+}
+
+/* unvisited link */
+a:link {
+  padding: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+/* visited link */
+a:visited {
+  padding: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  padding: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+/* selected link */
+a:active {
+  padding: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  font-size: 35px;
+  grid-column-start: 1/2;
+  width: 60%;
+  margin: auto;
+  line-height: 70px;
+  padding-left: 80px;
+
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+  font-size: 35px;
+  grid-column-start: 1/2;
+  width: 60%;
+  margin: auto;
+  line-height: 70px;
+  padding-left: 80px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+
+.search-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+}
+
+.search-img {
+  padding-right: 80px;
+}
+
+.profile-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.profile-img img {
+  padding-right: 80px;
+  object-fit: cover;
+}
+
+.profile-list {
+  border: #ffd02f 2px solid;
+  border-radius: 10px;
+  margin: 30px 110px 30px 110px;
+  height: 150px;
+  font-size: 20px;
+ 
+}
+
+.profile-box {
+  font-size: 35px;
+  
+}
+
+.profile-name {
+  margin: 20px;
+  height: 40px;
+}
+
+.profile-text {
+  margin: 20px;
+  height: 40px;
+}

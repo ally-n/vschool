@@ -15,7 +15,7 @@ todoForm.addEventListener("submit", function(e){
 
     axios.post("https://api.vschool.io/[ally_n]/todo", newTodo)
         .then(
-            res => autoRefresh())
+            getData())
         .catch(err => console.log(err))
 })
 

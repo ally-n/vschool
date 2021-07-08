@@ -12,13 +12,13 @@ function App() {
         <div>
             <Navbar />
             <Switch>
-                <Route>
+                <Route exact path="/search">
                     <Search />
                 </Route>
-                <Route>
+                <Route exact path="/business">
                     <Business /> 
                 </Route>
-                <Route>
+                <Route exact path="/profile">
                     <Profile /> 
                 </Route>
             </Switch>
