@@ -8,7 +8,7 @@ function MenuContextProvider(props) {
     const [businessName, setBusinessName] = useState("")
     const [businessIMG, setBusinessIMG] = useState("")
     const [searchResults, setSearchResults] = useState()
-    const [token, setToken] = useState("rHJRaOYaxrj6_mmjDI8cCXSozRWMg7_KGaMK5cEh3PiXtsulZSX4BnNlo_7QU3ns8vxPY5MTehGNcCu9LZ5CMN2_dl6tmzO_7WgEnlL5KljAeqEMz-w3UhE-r6ncYHYx")
+    const [token] = useState("rHJRaOYaxrj6_mmjDI8cCXSozRWMg7_KGaMK5cEh3PiXtsulZSX4BnNlo_7QU3ns8vxPY5MTehGNcCu9LZ5CMN2_dl6tmzO_7WgEnlL5KljAeqEMz-w3UhE-r6ncYHYx")
 
 
     return (

@@ -12,7 +12,7 @@ function App() {
         <div>
             <Navbar />
             <Switch>
-                <Route exact path="/search">
+                <Route exact path="/">
                     <Search />
                 </Route>
                 <Route exact path="/business">

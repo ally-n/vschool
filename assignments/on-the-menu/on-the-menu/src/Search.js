@@ -1,55 +1,64 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import axios from "axios"
 import {MenuContext} from "./MenuContext"
-import xtype from 'xtypejs'
 
 function Search(props) {
     const {token, searchResults, setSearchResults, businessName, setBusinessName} = useContext(MenuContext)
+    const [search, setSearch] = useState("")
+    const [mappedData, setMappedData] = useState([])
     
-    const getData = () => {
-         axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/gR9DTbKCvezQlqvD7_FzPw`, {
+    const getData = (search) => {
+         axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?`, {
         headers: {
             Authorization: `Bearer ${token}`
             },
         params: {
-            term: 'restaurants'
+            term: search,
+            location: "Utah County"
             }
         })
         .then(res => {
             setSearchResults(res.data)
-            console.log(res.data)
-            setBusinessName(res.data.name)
-            console.log(res.data.name)
+            console.log(searchResults)
+            console.log(res.data.businesses[0].name)  //works
+            setMappedData(res.data.businesses.map(item => {
+                return (
+                    <h1>{item.name}</h1>
+                    // <h3>{item.city}</h3>
+                )
+            }))
         })
         .catch(err => console.log(err))
 
     }
   
+    function handleChange(e) {
+        setSearch(e.target.value)
+    }
 
-  function handleSubmit(e) {
+    function handleSubmit(e) {
         e.preventDefault()
-        getData()
+        getData(search)
+
   }
-  
-//   let mappedData = searchResults.map(item => {
-//     return (
-//         <h1>{item.name}</h1>
-//     )
-// })
+//   console.log(searchResults)
+ 
 
 
 
     
     return (
         <div>
-            {/* {mappedData} */}
+            {mappedData}
             <div className="search-body">
                 <form onSubmit={handleSubmit}>
                     SEARCH HERE
                     <input
+                        value={search}
+                        name="search" 
                         type="search"
                         placeholder="Type the restaurant..."
-                        name="search" 
+                        onChange={handleChange}
                     />
                     <button type="submit">Search</button>
                 </form>
@@ -58,7 +67,7 @@ function Search(props) {
                 </div>
             </div>
             <div className="business-list">
-                {businessName}
+                Restaurant Listing Here
             </div>
             <div className="business-list">
                 Restaurant Listing Here
@@ -83,3 +92,6 @@ export default Search
 //array of all items pushed and displayed on Profile
 
 //display
+
+
+// const contacts = contactsData.map(contact => <h2 key={contact.firstName + contact.lastName}>{contact.firstName} {contact.lastName}</h2>)
