@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react"
+import { Link } from "react-router-dom"
 import axios from "axios"
 import {MenuContext} from "./MenuContext"
 
 function Search(props) {
-    const {token, searchResults, setSearchResults, businessName, setBusinessName} = useContext(MenuContext)
+    const {token, searchResults, setSearchResults, businessID, setBusinessID} = useContext(MenuContext)
     const [search, setSearch] = useState("")
     const [mappedData, setMappedData] = useState([])
     
@@ -19,17 +20,23 @@ function Search(props) {
         })
         .then(res => {
             setSearchResults(res.data)
-            console.log(searchResults)
+            console.log(searchResults) //works sometimes
+            console.log(res.data) //works
             console.log(res.data.businesses[0].name)  //works
             setMappedData(res.data.businesses.map(item => {
+                {setBusinessID(item.id)}
                 return (
-                    <h1>{item.name}</h1>
-                    // <h3>{item.city}</h3>
+                    <div className="business-list" >
+                         <img src={item.image_url} alt={item.name} height="300px" width="300px" style={{borderRadius:7}}></img>
+                        <div className="business-list-text">
+                            <Link to="/business">{item.name}</Link>
+                            <p key={item.id}>{item.location.city}</p>
+                        </div>
+                    </div>
                 )
             }))
         })
         .catch(err => console.log(err))
-
     }
   
     function handleChange(e) {
@@ -39,19 +46,19 @@ function Search(props) {
     function handleSubmit(e) {
         e.preventDefault()
         getData(search)
-
   }
-//   console.log(searchResults)
- 
 
-
-
+  //create an onClick function that sets the businessID to match the one that was clicked 
+  //work on add item form
+  //create review array -- Can I create my own API or how should I store my array? local storage?
     
     return (
         <div>
-            {mappedData}
+            
             <div className="search-body">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={(e) => {
+                    handleSubmit(e, businessID)
+                }}>
                     SEARCH HERE
                     <input
                         value={search}
@@ -66,17 +73,8 @@ function Search(props) {
                     <img height="300px" width="300px" src="https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="table"></img>
                 </div>
             </div>
-            <div className="business-list">
-                Restaurant Listing Here
-            </div>
-            <div className="business-list">
-                Restaurant Listing Here
-            </div>
-            <div className="business-list">
-                Restaurant Listing Here
-            </div>
-            <div className="business-list">
-                Restaurant Listing Here
+            <div className="business-array-display">
+                {mappedData}
             </div>
         </div>
     )
@@ -84,14 +82,3 @@ function Search(props) {
 }
 
 export default Search
-
-//get map to work, search box to work
-
-//add item to work, business to display
-
-//array of all items pushed and displayed on Profile
-
-//display
-
-
-// const contacts = contactsData.map(contact => <h2 key={contact.firstName + contact.lastName}>{contact.firstName} {contact.lastName}</h2>)

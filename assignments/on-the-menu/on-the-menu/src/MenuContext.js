@@ -13,7 +13,7 @@ function MenuContextProvider(props) {
 
     return (
         <MenuContext.Provider value={{
-            ratingArray, addedItem, businessID, 
+            ratingArray, addedItem, businessID, setBusinessID,
             searchResults, setSearchResults, businessName, 
             businessIMG, setBusinessName, setBusinessIMG, token}}>
         {props.children}

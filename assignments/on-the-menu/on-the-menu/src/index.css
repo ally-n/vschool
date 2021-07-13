@@ -20,8 +20,12 @@ input {
   border: #ffd02f 5px solid;
   border-radius: 10px;
   margin: 30px 110px 30px 110px;
-  height: 150px;
-  font-size: 20px;
+  height: 350px;
+  width: 750px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -155,4 +159,11 @@ img {
 .question {
   font-size: 30px;
   padding: 30px;
+}
+
+.business-array-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 35px;
 }

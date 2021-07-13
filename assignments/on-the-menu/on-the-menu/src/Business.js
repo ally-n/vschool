@@ -3,11 +3,11 @@ import axios from "axios"
 import {MenuContext} from "./MenuContext"
 
 function Business(props) {
-    const {token, businessName, businessIMG, setBusinessIMG, setBusinessName} = useContext(MenuContext)
+    const {token, businessID, businessName, businessIMG, setBusinessIMG, setBusinessName} = useContext(MenuContext)
     const [city, setCity] = useState("")
 
     const getBusiness = () => {
-        axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/gR9DTbKCvezQlqvD7_FzPw`, { //eventually have business ID here
+        axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/${businessID}`, { //eventually have business ID here
        headers: {
            Authorization: `Bearer ${token}`
            },
@@ -23,21 +23,21 @@ function Business(props) {
        })
        .catch(err => console.log(err))
    }
-
-//    getBusiness()
+    console.log(businessID)
+   getBusiness()
 
     return (
-        // <div className="business-listing">
-        //     <div className="business-listing-img">
-        //         <img src={businessIMG} alt="restaurant" height="300px" width="300px"></img>  
-        //     </div>
-        //     <div  className="business-listing-info">
-        //         <h3>{businessName}</h3>
-        //         <h3>{city}</h3>
-        //     </div>
-        // </div>
         <div>
-            <div className="business-listing">
+             {/* <div className="business-listing">
+                <div className="business-listing-img">
+                    <img src={businessIMG} alt="restaurant" height="300px" width="300px"></img>  
+                </div>
+                <div  className="business-listing-info">
+                    <h3>{businessName}</h3>
+                    <h3>{city}</h3>
+                </div>
+            </div> */}
+            {/* <div className="business-listing">
                 <div className="business-listing-img">
                     <img src="https://s3-media4.fl.yelpcdn.com/bphoto/8713LkYA3USvWj9z4Yokjw/o.jpg" alt="restaurant" height="300px" width="300px"></img>  
                 </div>
@@ -45,7 +45,7 @@ function Business(props) {
                     <h3>North India Restaurant</h3>
                     <h3>San Francisco</h3>
                 </div>
-            </div>
+            </div> */}
             <div className="question">
             What have I ordered here?
             </div>
