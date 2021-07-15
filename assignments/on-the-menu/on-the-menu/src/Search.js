@@ -4,7 +4,7 @@ import axios from "axios"
 import {MenuContext} from "./MenuContext"
 
 function Search(props) {
-    const {token, searchResults, setSearchResults, businessID, setBusinessID} = useContext(MenuContext)
+    const {token, searchResults, setSearchResults, getBusiness, businessID, setBusinessID} = useContext(MenuContext)
     const [search, setSearch] = useState("")
     const [mappedData, setMappedData] = useState([])
     
@@ -24,13 +24,12 @@ function Search(props) {
             console.log(res.data) //works
             console.log(res.data.businesses[0].name)  //works
             setMappedData(res.data.businesses.map(item => {
-                {setBusinessID(item.id)}
                 return (
                     <div className="business-list" >
-                         <img src={item.image_url} alt={item.name} height="300px" width="300px" style={{borderRadius:7}}></img>
-                        <div className="business-list-text">
-                            <Link to="/business">{item.name}</Link>
-                            <p key={item.id}>{item.location.city}</p>
+                         <img src={item.image_url} alt={item.name} height="150px" width="150px" style={{borderRadius:7}}></img>
+                        <div key={item.id} className="business-list-text">
+                            <Link to="/business"  onClick={() => getBusiness(item.id)}>{item.name} </Link>
+                            <p >{item.location.city}</p>
                         </div>
                     </div>
                 )
@@ -48,8 +47,7 @@ function Search(props) {
         getData(search)
   }
 
-  //create an onClick function that sets the businessID to match the one that was clicked 
-  //work on add item form
+  //work on add item form, showForm state to display form component
   //create review array -- Can I create my own API or how should I store my array? local storage?
     
     return (

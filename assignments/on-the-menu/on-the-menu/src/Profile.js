@@ -1,7 +1,24 @@
-import React from "react"
+import React, { useContext } from "react"
 import AllyImg from "./ally.JPG"
+import { MenuContext } from "./MenuContext"
+
 
 function Profile() {
+    const {addItem, ratingArray} = useContext(MenuContext)
+
+    const renderedRatingArr = ratingArray.map(item => (
+        <div>
+             <div className="review-list">
+                 <div className="review-text">
+                     <p style={{fontSize:35}}>{item.name}</p>
+                     <p>{item.text}</p>
+                     <p>{item.review}</p>
+                 </div>
+                 <img className="review-img" src={item.photo} alt="waffle"></img>
+             </div>
+             <br/>
+        </div>
+     ))
     return (
     <div>
         <div className="profile-body">
@@ -10,7 +27,7 @@ function Profile() {
                     Ally Nickell
                 </div>
                 <div className="text-box">
-                    17 Reviews
+                    {ratingArray.length} Reviews
                 </div>
             <button>Add Item</button>
             </div>
@@ -22,16 +39,11 @@ function Profile() {
         <div className="question">
             What have I ordered?        
         </div>
-        <div className="review-list">
-            Food Review Here
+        <div>
+                {renderedRatingArr}
+
         </div>
-        <div className="review-list">
-            Food Review Here
-        </div>
-        <div className="review-list">
-            Food Review Here
-        </div>
-        
+     
     </div>
         
     ) 
