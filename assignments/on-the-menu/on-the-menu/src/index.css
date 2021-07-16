@@ -75,7 +75,7 @@ a:active {
   color: black;
 }
 
-form {
+.search-form {
   display: flex;
   flex-direction: column;
   font-size: 40px;
@@ -189,4 +189,23 @@ img {
   justify-content: center;
   font-size: 35px;
   padding-top: 75px;
+}
+
+.add-item-form-div {
+  width: 60%;
+  border: darkslategray solid 5px;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.add-item-form {
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+  grid-column-start: 1/2;
+  width: 60%;
+  margin: auto;
+  line-height: 70px;
+  padding-bottom: 20px;
 }

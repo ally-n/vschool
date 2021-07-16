@@ -1,10 +1,10 @@
 import React, { useContext } from "react"
 import AllyImg from "./ally.JPG"
 import { MenuContext } from "./MenuContext"
-
+import ReviewForm from "./ReviewForm"
 
 function Profile() {
-    const {addItem, ratingArray} = useContext(MenuContext)
+    const {addItem, ratingArray, showForm, toggleForm} = useContext(MenuContext)
 
     const renderedRatingArr = ratingArray.map(item => (
         <div>
@@ -29,16 +29,17 @@ function Profile() {
                 <div className="text-box">
                     {ratingArray.length} Reviews
                 </div>
-            <button>Add Item</button>
             </div>
             <div className="profile-img">
                 <img height="300px" width="300px" src={AllyImg} alt="ally nickell"></img>
             </div>
             
         </div>
+        {showForm ? <ReviewForm /> : null}
         <div className="question">
             What have I ordered?        
         </div>
+       
         <div>
                 {renderedRatingArr}
 

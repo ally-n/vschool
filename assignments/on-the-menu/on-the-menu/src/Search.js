@@ -4,7 +4,7 @@ import axios from "axios"
 import {MenuContext} from "./MenuContext"
 
 function Search(props) {
-    const {token, searchResults, setSearchResults, getBusiness, businessID, setBusinessID} = useContext(MenuContext)
+    const {token, setSearchResults, getBusiness, businessID} = useContext(MenuContext)
     const [search, setSearch] = useState("")
     const [mappedData, setMappedData] = useState([])
     
@@ -20,9 +20,6 @@ function Search(props) {
         })
         .then(res => {
             setSearchResults(res.data)
-            console.log(searchResults) //works sometimes
-            console.log(res.data) //works
-            console.log(res.data.businesses[0].name)  //works
             setMappedData(res.data.businesses.map(item => {
                 return (
                     <div className="business-list" >
@@ -47,14 +44,11 @@ function Search(props) {
         getData(search)
   }
 
-  //work on add item form, showForm state to display form component
-  //create review array -- Can I create my own API or how should I store my array? local storage?
-    
     return (
         <div>
             
             <div className="search-body">
-                <form onSubmit={(e) => {
+                <form className="search-form" onSubmit={(e) => {
                     handleSubmit(e, businessID)
                 }}>
                     SEARCH HERE
