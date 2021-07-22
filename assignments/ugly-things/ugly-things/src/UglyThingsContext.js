@@ -63,7 +63,7 @@ function UglyThingsContextProvider(props) {
         return setData(newData)
      }
 
-     useEffect(() => {
+    useEffect(() => {
         console.log("useEffect")
         fetchData()
     }, [])

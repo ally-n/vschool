@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react"
+import React, { useContext } from "react"
 import {MenuContext} from "./MenuContext"
-import ReviewForm from "./ReviewForm"
+
 
 function Business() {
-const {businessID, businessName, businessIMG, city, ratingArray, toggleForm, showForm, addedItem, setAddedItem} = useContext(MenuContext)
+const {businessID, businessName, businessIMG, city, ratingArray, showForm, toggleForm, addedItem, setAddedItem, setRatingArray} = useContext(MenuContext)
 
 const renderFilteredArr = ratingArray.filter(function(business) {
     return business.id === businessID}).map(function (business) {
@@ -12,7 +12,7 @@ const renderFilteredArr = ratingArray.filter(function(business) {
                 <div className="review-list">
                     <div className="review-text">
                         <p>{business.text}</p>
-                        <p>{business.review}</p>
+                        <p>Rating: {business.review}</p>
                     </div>
                     <img className="review-img" src={business.photo} alt="waffle"></img>
                 </div>
@@ -23,15 +23,34 @@ const renderFilteredArr = ratingArray.filter(function(business) {
     })
 
     function handleChange(e) {
-        setAddedItem({[e.target.name]:e.target.value})
-        setAddedItem(e.id= {businessID})
+        setAddedItem(prevState => {
+            return (
+                {
+                    ...prevState, 
+                    [e.target.name]:e.target.value,
+                    id: businessID
+                })
+
+        })
+            
     }
     
     function handleSubmit(e) {
         e.preventDefault()
-        renderFilteredArr.push(addedItem)
+        setRatingArray(prevArray => [...prevArray, addedItem])
         console.log("item has been added")
         console.log(renderFilteredArr)
+        toggleForm()
+        setAddedItem(prevState => {
+            return (
+                {
+                    ...prevState, 
+                    [e.target.name]:"",
+                    id: ""
+                })
+
+        })
+    //not sure how to make it re-render the filteredArray
     }
     
     return (

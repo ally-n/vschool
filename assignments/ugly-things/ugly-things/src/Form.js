@@ -4,7 +4,7 @@ import { UglyThingsContext } from "./UglyThingsContext"
 
 function Form(props) {
     const {inputData, editInputData, handleSubmit, handleChange, editUgly} = useContext(UglyThingsContext)
-    console.log()
+    
     return (
         <div>
             <form onSubmit={(e) => {

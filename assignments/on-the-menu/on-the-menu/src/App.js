@@ -6,7 +6,6 @@ import Footer from "./Footer"
 import Search from "./Search"
 import Business from "./Business"
 import Profile from "./Profile"
-import ReviewForm from "./ReviewForm"
 
 function App() {
     return (

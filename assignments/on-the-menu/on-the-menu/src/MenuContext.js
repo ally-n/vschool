@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import axios from "axios"
 const MenuContext = React.createContext()
 
@@ -35,6 +35,7 @@ function MenuContextProvider(props) {
        .catch(err => console.log(err))
    }
 
+
    const data = [
     {
         name: "Waffle Love",
@@ -60,7 +61,7 @@ function MenuContextProvider(props) {
 ]
   
 function setArray() {
-    return setRatingArray(data)
+    setRatingArray(data)
 }
 
 function toggleForm() {
@@ -85,7 +86,7 @@ function toggleForm() {
             getBusiness, 
             setAddedItem, 
             setArray, 
-            toggleForm, 
+            toggleForm,
             showForm, 
             token}}>
         {props.children}
