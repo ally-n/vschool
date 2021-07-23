@@ -43,12 +43,34 @@ app.get("/bounties", (req, res) => {
     res.send(bounties)
 })
 
+app.get("/bounties/:bountyId", (req, res) => {
+    console.log("get single bounty is working")
+    const bountyId = req.params.bountyId
+    const foundBounty = bounties.find(bounty => bounty._id === bountyId)
+    res.send(foundBounty)
+})
+
 app.post("/bounties", (req, res) => {
     const newBounty = req.body
     newBounty._id = uuidv4()
     bounties.push(newBounty)
     console.log("Post is working")
     res.send(`Successfully added ${newBounty.firstName} ${newBounty.lastName} to the database!`)
+})
+
+app.put("/bounties/:bountyId", (req, res) =>{
+    const bountyId = req.params.bountyId
+    const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
+    const updatedBounty = Object.assign(bounties[bountyIndex], req.body)
+    res.send(updatedBounty)
+    console.log("change bounty WORKED")
+})
+
+app.delete("/bounties/:bountyId", (req, res) =>{
+    const bountyId = req.params.bountyId
+    const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
+    bounties.splice(bountyIndex, 1)
+    res.send(`Successfully deleted your bounty!`)
 })
 
 app.listen(9000, () => {
