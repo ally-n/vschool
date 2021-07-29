@@ -45,22 +45,22 @@ app.get("/bounties", (req, res) => {
     res.send(bounties)
 })
 
-app.get("/:bountyId", (req, res) => {
+app.get("/bounties/:bountyId", (req, res) => {
     console.log("get single bounty is working")
     const bountyId = req.params.bountyId
     const foundBounty = bounties.find(bounty => bounty._id === bountyId)
     res.send(foundBounty)
 })
 
-app.post("/", (req, res) => {
+app.post("/bounties", (req, res) => {
     const newBounty = req.body
     newBounty._id = uuidv4()
     bounties.push(newBounty)
     console.log("Post is working")
-    res.send(`Successfully added ${newBounty.firstName} ${newBounty.lastName} to the database!`)
+    res.send(newBounty)
 })
 
-app.put("/:bountyId", (req, res) =>{
+app.put("/bounties/:bountyId", (req, res) =>{
     const bountyId = req.params.bountyId
     const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
     const updatedBounty = Object.assign(bounties[bountyIndex], req.body)
@@ -68,7 +68,7 @@ app.put("/:bountyId", (req, res) =>{
     console.log("change bounty WORKED")
 })
 
-app.delete("/:bountyId", (req, res) =>{
+app.delete("/bounties/:bountyId", (req, res) =>{
     const bountyId = req.params.bountyId
     const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
     bounties.splice(bountyIndex, 1)
