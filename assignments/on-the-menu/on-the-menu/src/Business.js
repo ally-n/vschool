@@ -50,7 +50,6 @@ const renderFilteredArr = ratingArray.filter(function(business) {
                 })
 
         })
-    //not sure how to make it re-render the filteredArray
     }
     
     return (

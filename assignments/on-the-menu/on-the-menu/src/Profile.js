@@ -22,8 +22,6 @@ function Profile() {
 
     function handleChange(e) {
         setAddedItem({[e.target.name]:e.target.value})
-        //not taking all of the items and adding them
-        
     }
     
     function handleSubmit(e) {
@@ -32,8 +30,6 @@ function Profile() {
         renderedRatingArr.push(addedItem)
         console.log("item has been added")
         toggleForm()
-        //not sure how to make it re-render the mapped array
-    
     }
 
 
