@@ -3,11 +3,11 @@ import axios from "axios"
 import {BountyContext} from "./BountyContext"
 
 export default function Form(props) {
-    const {getBounties, setBounties, bounties, toggleForm, editBounty, showForm} = useContext(BountyContext)
+    const {getBounties, setBounties, bounties, toggleForm, editBounty, showForm, shouldThingEdit} = useContext(BountyContext)
     const initInputs = {
         firstName: props.firstName || "", 
         lastName: props.lastName || "",
-        living: props.living || true,
+        living: props.living || "",
         bountyAmount: props.bountyAmount ||  "",
         type: props.type || ""
     }
@@ -16,6 +16,7 @@ export default function Form(props) {
     function handleChange(e) {
         const {name, value} = e.target
         setInputs(prevInputs => ({...prevInputs, [name]: value}))
+        console.log(inputs)
     }
 
     function handleSubmit(e) {
@@ -55,12 +56,12 @@ export default function Form(props) {
                 onChange={handleChange}
                 placeholder="Type the Last Name"
             />
-            {/* <select value={inputs.living}>
+            {/* <select onChange={handleChange} value={inputs.living} >
                 <option >Alive?</option>
-                <option onChange={handleChange}>Living</option>
-                <option onChange={handleChange}>Dead</option>
+                <option value="Living">Living</option>
+                <option value="Dead">Dead</option>
             </select>
-            <select value={inputs.type}>
+            <select >
                 <option>Jedi or Sith?</option>
                 <option onChange={handleChange}>Jedi</option>
                 <option onChange={handleChange}>Sith</option>
@@ -72,8 +73,8 @@ export default function Form(props) {
                 onChange={handleChange}
                 placeholder="Enter Bounty Amount"
             />
-            <button onClick={() => editBounty(props._id)}>{props.btnText}</button>
-            <button onClick={() => toggleForm()}>{props.cancelBtn}</button>
+            {/* <button onClick={() => editBounty(props._id)}>{props.btnText}Submit</button> */}
+            <button onClick={() => editBounty(props._id)}>Submit</button> 
         </form>
     )
 }

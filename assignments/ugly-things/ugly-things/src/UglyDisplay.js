@@ -15,7 +15,7 @@ function UglyDisplay() {
             <p>{item.description}</p>
             <img src={item.imgUrl} alt={item.title} height="300px" width="300px"/>
             <div>
-                <button onClick={() => shouldThingEdit(item._id)}>Edit</button> 
+                <button onClick={() => shouldThingEdit(item._id)}>Submit</button> 
                 <button onClick={() => deleteUgly(item._id)} >Delete</button>
             </div>
            

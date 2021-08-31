@@ -4,7 +4,7 @@ import Form from "./Form"
 import {BountyContext} from "./BountyContext"
 
 export default function Bounties() {
-    const {getBounties, bounties, setBounties, showForm, toggleForm, editBounty} = useContext(BountyContext)
+    const {getBounties, bounties, setBounties, showForm, toggleForm, shouldThingEdit, editBounty} = useContext(BountyContext)
     
     useEffect(() => {
         axios.get("/bounties")
@@ -20,18 +20,10 @@ export default function Bounties() {
             .catch(err => console.log(err))
     }
 
-    // function editBounty(bountyId) {
-    //     axios.put(`/bounties/${bountyId}`)
-    //         .then(res => {
-    //         toggleForm()
-    //         })
-    // }
-    
-
    const mappedBounties = bounties.map(bounty => {
         return (
-            showForm ? (
-            <div key={bounty._id}>
+            bounty.showForm ?  (
+            <div className="form-container" key={bounty._id}>
                 <Form 
                     firstName={bounty.firstName}
                     lastName={bounty.lastName}
@@ -41,7 +33,9 @@ export default function Bounties() {
                     _id={bounty._id}
                     btnText="Submit Edit"
                     cancelBtn="Cancel Edit"
+                    editBounty={editBounty}  
                 />
+                <button onClick={() => shouldThingEdit(bounty._id)}>Cancel</button>
             </div>)
             : (
                 <div key={bounty._id}>
@@ -50,7 +44,7 @@ export default function Bounties() {
                     <p>{bounty.living ? "Alive" : "Dead" }</p>
                     <p>{bounty.type}</p>
                     <button onClick={() => deleteBounty(bounty._id)}>Delete Bounty</button>
-                    <button onClick={() => toggleForm()}>Edit Bounty</button>
+                    <button onClick={() => shouldThingEdit(bounty._id)}>Edit Bounty</button>
                 </div>)
         )
     })
