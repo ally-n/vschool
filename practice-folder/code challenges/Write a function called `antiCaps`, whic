@@ -1,0 +1,11 @@
+Write a function called `antiCaps`, which accepts a string and returns an adjusted string as follows.
+* Uppercase characters will become lowercase.
+* Lowercase characters will become uppercase.
+console.log(antiCaps('Hello'))  // hELLO
+console.log(antiCaps('racEcar'))  // RACeCAR
+console.log(antiCaps('bAnAnA'))  // BaNaNa
+###### Hint
+Here is a helper function that will return `true` if the letter is uppercase, and `false` if the letter is lowercase:
+function isCaps(letter) {
+  return letter === letter.toUpperCase();
+}

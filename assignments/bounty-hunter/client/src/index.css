@@ -1,10 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poller+One&display=swap");
+
 
 body {
   margin: 0;
   text-align: center;
   font-family: "Poller One", cursive;
-  color: #001219;
+  color: rgb(21, 44, 107);
   text-transform: uppercase;
 }
 
+form {
+  background: rgb(21, 44, 107);
+  color: white;
+  width: 100%;
+  /* height: 150px; */
+  padding-top: 30px;
+  justify-content: space-around;
+}
+
+button {
+  background-color: #85ac97;
+  border-color: #578065;
+  color: white;
+  width: 90px;
+  height: 50px;
+  margin: 10px;
+}
+
+.bounty-container {
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+.bounty {
+      width: 30%;
+      border: solid 2px rgb(21, 44, 107);
+      margin: 10px;
+      /* height: 165px; */
+}
+
+input {
+    margin: 10px;
+    font-size: 15px;
+}
+
+select {
+    margin: 10px;
+    font-size: 15px;
+}
+
+h1 {
+    font-size: 28px;
+}

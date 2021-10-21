@@ -38,13 +38,15 @@ export default function Bounties() {
                 <button onClick={() => shouldThingEdit(bounty._id)}>Cancel</button>
             </div>)
             : (
-                <div key={bounty._id}>
-                    <h1>{`${bounty.firstName}  ${bounty.lastName}`}</h1>
-                    <p>${bounty.bountyAmount}</p>
-                    <p>{bounty.living ? "Alive" : "Dead" }</p>
-                    <p>{bounty.type}</p>
-                    <button onClick={() => deleteBounty(bounty._id)}>Delete Bounty</button>
+                <div key={bounty._id} className="bounty">
+                    <h1>Name: {`${bounty.firstName}  ${bounty.lastName}`}</h1>
+                    <p>Worth: ${bounty.bountyAmount}</p>
+                    <p>Status: {bounty.living ? "Alive" : "Dead" }</p>
+                    <p>Type: {bounty.type}</p>
+                    
+                    <button onClick={() => deleteBounty(bounty._id)} className="main-div2">Delete Bounty</button>
                     <button onClick={() => shouldThingEdit(bounty._id)}>Edit Bounty</button>
+                   
                 </div>)
         )
     })
@@ -52,8 +54,12 @@ export default function Bounties() {
 
     return (
         <div>
+            <h1>BOUNTY HUNTER</h1>
             <Form />
-           {mappedBounties}
+            <div className="bounty-container">
+                {mappedBounties}
+            </div>
+          
         </div>
     )
 }

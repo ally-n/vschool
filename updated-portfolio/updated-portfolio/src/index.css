@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+body {
+  font-family: "Fjalla One", sans-serif;
+  margin: 0;
+  text-align: center;
+  color: #002626;
+}
+
+/* Header */
+
+.title {
+  padding: 12px;
+  font-size: 70px;
+  letter-spacing: 20px;
+  color: #002626;
+  text-transform: uppercase;
+}
+
+.link-wrapper {
+  border: 3px solid #002626;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.nav-links {
+  border-right: 3px solid #002626;
+  color: #002626;
+  text-decoration: none;
+  font-size: 40px;
+  transition: all 0.4s ease;
+}
+
+.nav-links:hover {
+  letter-spacing: 3px;
+  transition: all 0.4s ease;
+}
+
+/*Projects */
+
+.gallery {
+  margin-top: 40px;
+}
+
+/*Contact*/
+
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-family: "Fjalla One", serif;
+  outline: none;
+  font-size: 26px;
+}
+
+input[type="text"]:focus {
+  border: 5px solid #ffffff;
+  outline: none;
+}
+.submit-button {
+  background-color: white;
+  color: #002626;
+  font-family: "Fjalla One", serif;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  font-size: 28px;
+  text-transform: uppercase;
+
+}
+
+input[type="submit"]:hover {
+  background-color: #002626;
+}
+
+textarea {
+  height: 250px;
+}
+
+.contact-flex {
+  display: flex;
+  align-items: center;
+}
+
+.contact-container {
+  border-radius: 5px;
+  background-color: #002626;
+  color: white;
+  font-size: 30px;
+  text-align: left;
+  padding: 20px;
+  font-family: "Fjalla One", serif;
+  width: 60%;
+  margin: 20px 20px 20px 20px;
+  height: 620px;
+  text-transform: uppercase;
+}
+
+.lets-connect img {
+  height: 655px;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+  max-height: calc(640px - 80px);
+}
+
+/* Footer */
+
+.footer {
+  border-top: solid 3px #002626;
+}
+.svg-inline--fa {
+  font-size: 80px;
+  color: #002626;
+  float: right;
+  padding: 15px;
+  margin-right: 30px;
+}

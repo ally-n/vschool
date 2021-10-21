@@ -25,7 +25,8 @@ export default function Form(props) {
             addBounty(inputs, props._id)
             setInputs(initInputs)
             getBounties()}
-        else {editBounty(inputs, props._id)
+        else {
+            editBounty(inputs, props._id)
             setInputs(initInputs)
             getBounties()}
     }
@@ -42,6 +43,7 @@ export default function Form(props) {
 
     return (
         <form onSubmit={handleSubmit}>
+            Add New Bounty 
             <input 
                 type="text"
                 name="firstName"
@@ -56,16 +58,16 @@ export default function Form(props) {
                 onChange={handleChange}
                 placeholder="Type the Last Name"
             />
-            {/* <select onChange={handleChange} value={inputs.living} >
+            <select onChange={handleChange} value={inputs.living} name="living">
                 <option >Alive?</option>
                 <option value="Living">Living</option>
                 <option value="Dead">Dead</option>
             </select>
-            <select >
+            <select onChange={handleChange} value={inputs.type} name="type">
                 <option>Jedi or Sith?</option>
-                <option onChange={handleChange}>Jedi</option>
-                <option onChange={handleChange}>Sith</option>
-            </select> */}
+                <option value="jedi">Jedi</option>
+                <option value="sith">Sith</option>
+            </select>
             <input 
                 type="number"
                 name="bountyAmount"
@@ -73,7 +75,6 @@ export default function Form(props) {
                 onChange={handleChange}
                 placeholder="Enter Bounty Amount"
             />
-            {/* <button onClick={() => editBounty(props._id)}>{props.btnText}Submit</button> */}
             <button onClick={() => editBounty(props._id)}>Submit</button> 
         </form>
     )
