@@ -8,16 +8,15 @@ import img3 from "./Images/meme.png"
 const images = [
     {
         original: img1,
-        thumbnail: img1,
-        description: "https://github.com/ally-n/vschool/tree/main/assignments/on-the-menu"
+        thumbnail: img1
     },
     {
         original: img2,
-        thumbnail: img2,
+        thumbnail: img2
     },
     {
         original: img3,
-        thumbnail: img3,
+        thumbnail: img3
     }
 ]
 

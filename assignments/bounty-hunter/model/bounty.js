@@ -11,17 +11,14 @@ const bountySchema = new Schema({
         required: true
     },
     living: {
-        type: Boolean,
-        required: true,
+        type: Boolean
     },
     bountyAmount: {
-        type: Number,
-        required: true
+        type: Number
     },
     type: {
         type: String,
-        enum: ['sith', 'jedi'],
-        required: true
+        enum: ['sith', 'jedi']
     }
 })
 

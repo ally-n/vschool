@@ -17,41 +17,6 @@ mongoose.connect('mongodb://localhost:27017/bountiesdb',
 () => console.log("Connected to the DB")
 )
 
-// const bounties = [
-//     {
-//      firstName: "Han",
-//      lastName: "Solo",
-//      living: false,
-//      bountyAmount: 224190,
-//      type: "Jedi",
-//      _id: uuidv4()
-//     },
-//     {
-//     firstName: "Leia",
-//      lastName: "Organa",
-//      living: true,
-//      bountyAmount: 10000000,
-//      type: "Jedi",
-//      _id: uuidv4()
-//     },
-//     {
-//     firstName: "Darth",
-//     lastName: "Bane",
-//     living: true,
-//     bountyAmount: 350002,
-//     type: "Sith",
-//     _id: uuidv4()
-//    },
-//    {
-//     firstName: "Darth",
-//      lastName: "Maul",
-//      living: false,
-//      bountyAmount: 10,
-//      type: "Sith",
-//      _id: uuidv4()
-//     }
-// ]
-
 app.get("/bounties", (req, res, next) => {
     Bounty.find((err, bounties) => {
         if(err) {
@@ -104,7 +69,7 @@ app.use((err, req, res, next) => {
 })
 
 
-app.listen(3000, () => {
-    console.log("The server is running on Port 3000")
+app.listen(9000, () => {
+    console.log("The server is running on Port 9000")
 })
 
