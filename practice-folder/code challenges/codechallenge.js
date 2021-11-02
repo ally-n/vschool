@@ -24,24 +24,31 @@
 
 //Step 3: Code
 
-function maxSum(arr, k) {
-    let currentSum = 0
-    for(let i = 0; i < arr.length - k + 1; i++){
-        let subArray  = arr.slice(i, k + i)
-        const sum = subArray.reduce((curr, acc) =>{
-            return curr + acc
-    }, 0)
-    if(sum > currentSum){
-        currentSum = sum
-    }
-}
-    if(k > arr.length) return "Invalid"
-    return currentSum
-    }
+// function maxSum(arr, k) {
+//     let currentSum = 0
+//     for(let i = 0; i < arr.length - k + 1; i++){
+//         let subArray  = arr.slice(i, k + i)
+//         const sum = subArray.reduce((curr, acc) =>{
+//             return curr + acc
+//     }, 0)
+//     if(sum > currentSum){
+//         currentSum = sum
+//     }
+// }
+//     if(k > arr.length) return "Invalid"
+//     return currentSum
+//     }
 
-console.log(maxSum([100, 200, 300, 400], 2))
-console.log(maxSum([1, 4, 2, 10, 23, 3, 1, 0, 20], 4))
-console.log(maxSum([2, 3], 3))
+// console.log(maxSum([100, 200, 300, 400], 2))
+// console.log(maxSum([1, 4, 2, 10, 23, 3, 1, 0, 20], 4))
+// console.log(maxSum([2, 3], 3))
 
 //Step 4: Look Back
 
+Array.prototype.myMap = function(____){
+
+    
+}
+
+const times2 = [1, 2, 3].myMap(num => num * 2) 
+console.log(times2) // => [2, 4, 6]

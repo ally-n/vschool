@@ -25,11 +25,9 @@ app.get("/bounties", (req, res, next) => {
         }
         return res.status(200).send(bounties)
     })
-    res.status(200).send(bounties)
 })
 
 app.get("/bounties/:bountyId", (req, res, next) => {
-    console.log("get single bounty is working")
     const bountyId = req.params.bountyId
     const foundBounty = bounties.find(bounty => bounty._id === bountyId)
     if(foundBounty) {
@@ -37,30 +35,46 @@ app.get("/bounties/:bountyId", (req, res, next) => {
         res.status(500)
         return next(error)
     }
-    res.status(200).send(foundBounty)
+    return res.status(200).send(foundBounty)
 })
 
 app.post("/bounties", (req, res, next) => {
-    const newBounty = req.body
-    newBounty._id = uuidv4()
-    bounties.push(newBounty)
-    console.log("Post is working")
-    res.status(201).send(newBounty)
+    const newBounty = new Bounty(req.body)
+    newBounty.save((err, savedBounty) => {
+        if(err) {
+            res.status(500)
+            return next(err)
+        }
+        return res.status(201).send(savedBounty)
+    })
 })
 
 app.put("/bounties/:bountyId", (req, res, next) =>{
-    const bountyId = req.params.bountyId
-    const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
-    const updatedBounty = Object.assign(bounties[bountyIndex], req.body)
-    res.status(201).send(updatedBounty)
-    console.log("change bounty WORKED")
+    Bounty.findOneAndUpdate(
+        {_id: req.params.bountyId},
+        req.body,
+        {new: true},
+        (err, updatedBounty) => {
+            if(err) {
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(updatedBounty)
+        }
+    )
 })
 
 app.delete("/bounties/:bountyId", (req, res, next) =>{
-    const bountyId = req.params.bountyId
-    const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
-    bounties.splice(bountyIndex, 1)
-    res.send(`Successfully deleted your bounty!`)
+    Bounty.findOneAndDelete(
+        {_id: req.params.bountyId},
+        (err, deletedBounty) => {
+            if(err) {
+                res.status(500)
+                return next(err)
+            }
+            return res.status(200).send(deletedBounty)
+        }
+    )
 })
 
 app.use((err, req, res, next) => {

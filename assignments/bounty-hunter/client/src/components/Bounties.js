@@ -5,7 +5,7 @@ import {BountyContext} from "./BountyContext"
 
 export default function Bounties() {
     const {getBounties, bounties, setBounties, showForm, toggleForm, shouldThingEdit, editBounty} = useContext(BountyContext)
-   
+
     useEffect(() => {
         axios.get("/bounties")
             .then(res => setBounties(res.data))
